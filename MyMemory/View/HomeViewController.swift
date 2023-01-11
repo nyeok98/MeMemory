@@ -17,7 +17,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeCollectionView.delegate = self
-        // Do any additional setup after loading the view.
+        homeCollectionView.dataSource = self
+        let blogNib = UINib(nibName: "HomeCollectionViewCell", bundle: nil)
+        homeCollectionView.register(blogNib, forCellWithReuseIdentifier: "HomeCollectionViewCell")
     }
 
     // MARK: - HELPER
