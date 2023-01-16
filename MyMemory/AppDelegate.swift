@@ -5,7 +5,9 @@
 //  Created by NYEOK on 2023/01/07.
 //
 
+import FirebaseAuth
 import FirebaseCore
+import FirebaseFirestore
 import UIKit
 
 @main

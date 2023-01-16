@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="gTV-IL-0wX" customClass="HomeCollectionViewCell" customModule="MyMemory" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCollectionViewCell" id="gTV-IL-0wX" customClass="DayCollectionViewCell" customModule="MyMemory" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -52,8 +52,8 @@
             </constraints>
             <size key="customSize" width="300" height="400"/>
             <connections>
-                <outlet property="body" destination="aiG-7j-J5Z" id="cZ9-nx-Ee2"/>
-                <outlet property="title" destination="61a-zQ-sAN" id="9Bi-WN-yuS"/>
+                <outlet property="body" destination="aiG-7j-J5Z" id="H7m-5J-ZdO"/>
+                <outlet property="title" destination="61a-zQ-sAN" id="ABF-xa-YQ4"/>
             </connections>
             <point key="canvasLocation" x="329.7709923664122" y="142.95774647887325"/>
         </collectionViewCell>
