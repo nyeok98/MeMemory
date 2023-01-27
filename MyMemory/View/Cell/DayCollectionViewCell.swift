@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class DayCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var body: UILabel!
+    // MARK: - PROPERTIES
+    let db = Database.database().reference().child("Day")
     
+    @IBOutlet var title: UILabel!
+    @IBOutlet var body: UILabel!
+
+    @IBAction func updateButton(_ sender: Any) {}
+
+    
+    // MARK: - LIFECYCLE
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    //MARK: - HELPERS
+    func updateDay(_ day:Day) {
     }
 }
