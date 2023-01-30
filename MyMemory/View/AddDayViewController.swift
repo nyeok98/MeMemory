@@ -10,6 +10,8 @@ import UIKit
 class AddDayViewController: UIViewController {
     // MARK: - PROPERTIES
     
+    let DidDismissAddDayViewController: Notification.Name = Notification.Name("DidDismissAddDayViewController")
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextField!
     
@@ -23,6 +25,12 @@ class AddDayViewController: UIViewController {
     // MARK: - HELPERS
     @IBAction func finishButtonTapped(_ sender: Any) {
         let newDay = Day(title: titleTextField.text ?? "", body: bodyTextField.text ?? "", imageURL: "")
-        dismiss(animated: true)
+        
+        if let viewController = presentingViewController as? HomeViewController {
+            self.dismiss(animated: true) {
+                viewController.dayList.append(newDay)
+                viewController.dayCollectionView.reloadData()
+            }
+        }
     }
 }

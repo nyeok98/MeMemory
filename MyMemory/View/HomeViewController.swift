@@ -28,11 +28,12 @@ class HomeViewController: UIViewController {
         dayCollectionView.delegate = self
         dayCollectionView.dataSource = self
         registerNib()
+        fetchDayData()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        fetchDayData()
+        print(dayList)
     }
 
     // MARK: - HELPER
@@ -44,7 +45,7 @@ class HomeViewController: UIViewController {
             do {
                 let decoder = JSONDecoder()
                 let dayList = try decoder.decode([Day].self, from: data)
-                self.dayList = dayList
+                self.dayList.append(contentsOf: dayList)
                 self.dayCollectionView.reloadData()
             } catch {
                 print("\(error.localizedDescription)")
