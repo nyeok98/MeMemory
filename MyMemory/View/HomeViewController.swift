@@ -16,6 +16,9 @@ class HomeViewController: UIViewController {
     let db = Database.database().reference().child("Day")
 
     @IBOutlet var dayCollectionView: UICollectionView!
+    @IBAction func addButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "goToAddDayVC", sender: self)
+    }
     var dayList: [Day] = []
 
     // MARK: - LIFECYCLE
