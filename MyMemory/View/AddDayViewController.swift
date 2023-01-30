@@ -11,6 +11,7 @@ class AddDayViewController: UIViewController {
     // MARK: - PROPERTIES
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bodyTextField: UITextField!
     
     
     // MARK: - LIFECYCLE
@@ -21,6 +22,7 @@ class AddDayViewController: UIViewController {
     
     // MARK: - HELPERS
     @IBAction func finishButtonTapped(_ sender: Any) {
+        let newDay = Day(title: titleTextField.text ?? "", body: bodyTextField.text ?? "", imageURL: "")
         dismiss(animated: true)
     }
 }

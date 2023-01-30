@@ -10,12 +10,24 @@ import Foundation
 struct Day: Codable {
     let title: String
     let body: String
-    let imageURL: String
+    let imageURL: String?
     let date: String
    
     enum CodingKeys: String, CodingKey {
         case title, body, date
         case imageURL = "image_url"
+    }
+    
+    init(title: String, body: String, imageURL: String?) {
+        self.title = title
+        self.body = body
+        self.imageURL = imageURL
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm"
+        let result = formatter.string(from: date)
+        self.date = result
     }
 
     init(from decoder: Decoder) throws {
