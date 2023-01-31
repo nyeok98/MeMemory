@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddDayViewController: UIViewController {
     // MARK: - PROPERTIES
     
+    let db = Database.database().reference().child("Day")
     let DidDismissAddDayViewController: Notification.Name = Notification.Name("DidDismissAddDayViewController")
     
     @IBOutlet weak var titleTextField: UITextField!
@@ -25,9 +27,17 @@ class AddDayViewController: UIViewController {
     // MARK: - HELPERS
     @IBAction func finishButtonTapped(_ sender: Any) {
         let newDay = Day(title: titleTextField.text ?? "", body: bodyTextField.text ?? "", imageURL: "")
+        let encoder = JSONEncoder()
         
         if let viewController = presentingViewController as? HomeViewController {
             self.dismiss(animated: true) {
+                do {
+                    let data = try encoder.encode(newDay)
+                    let json = try JSONSerialization.jsonObject(with: data)
+                    self.db.child(newDay.date).setValue(json)
+                } catch {
+                    print(error)
+                }
                 viewController.dayList.append(newDay)
                 viewController.dayCollectionView.reloadData()
             }

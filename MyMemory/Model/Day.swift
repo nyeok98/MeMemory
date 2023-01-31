@@ -25,7 +25,7 @@ struct Day: Codable {
         
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateFormat = "yyyyMMdd"
         let result = formatter.string(from: date)
         self.date = result
     }

@@ -31,11 +31,6 @@ class HomeViewController: UIViewController {
         fetchDayData()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        print(dayList)
-    }
-
     // MARK: - HELPER
 
     func fetchDayData() {
