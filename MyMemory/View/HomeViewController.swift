@@ -65,10 +65,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         cell.title.text = dayList[indexPath.row].title
         cell.body.text = dayList[indexPath.row].body
+        cell.updateButton.addTarget(self, action: #selector(performUpdate), for: .touchUpInside)
+                                    
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 400)
+    }
+    
+    @objc func performUpdate(sender: UIButton) {
+        performSegue(withIdentifier: "goToAddDayVC", sender: nil)
     }
 }

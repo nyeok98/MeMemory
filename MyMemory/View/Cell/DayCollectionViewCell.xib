@@ -36,9 +36,6 @@
                                 <rect key="frame" x="8" y="90" width="75" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="updateButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="WeL-DF-FTT"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,6 +61,7 @@
             <connections>
                 <outlet property="body" destination="aiG-7j-J5Z" id="H7m-5J-ZdO"/>
                 <outlet property="title" destination="61a-zQ-sAN" id="ABF-xa-YQ4"/>
+                <outlet property="updateButton" destination="occ-Q0-GIP" id="4wM-69-C1C"/>
             </connections>
             <point key="canvasLocation" x="329.7709923664122" y="142.95774647887325"/>
         </collectionViewCell>

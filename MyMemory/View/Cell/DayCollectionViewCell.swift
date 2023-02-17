@@ -15,7 +15,7 @@ class DayCollectionViewCell: UICollectionViewCell {
     @IBOutlet var title: UILabel!
     @IBOutlet var body: UILabel!
 
-    @IBAction func updateButton(_ sender: Any) {}
+    @IBOutlet weak var updateButton: UIButton!
 
     
     // MARK: - LIFECYCLE
@@ -26,5 +26,6 @@ class DayCollectionViewCell: UICollectionViewCell {
     
     //MARK: - HELPERS
     func updateDay(_ day:Day) {
+        
     }
 }
