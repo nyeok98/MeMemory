@@ -14,12 +14,13 @@ class HomeViewController: UIViewController {
     // MARK: - PROPERTIES
 
     let db = Database.database().reference().child("Day")
-
+    var dayList: [Day] = []
+    
     @IBOutlet var dayCollectionView: UICollectionView!
     @IBAction func addButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "goToAddDayVC", sender: self)
     }
-    var dayList: [Day] = []
+   
 
     // MARK: - LIFECYCLE
 
