@@ -15,6 +15,7 @@
 - [x] Firebase 연동
 - [x] CR(UD) 구현
 - [x] Create 과정 View LifeCycle과 연계
+- [x] Custom ScrollView 구현 -> cell 노출을 페이지 식을 하나씩
 - [ ] (CR)UD 구현
 - [ ] MVVM 아키텍쳐로 개선
 - [ ] translation api 연동
