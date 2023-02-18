@@ -90,15 +90,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
             // Calculate the center of the collection view
-            let center = CGPoint(x: scrollView.contentOffset.x + (scrollView.frame.width / 2), y: scrollView.contentOffset.y + (scrollView.frame.height / 2))
-
-            // Find the index path of the cell closest to the center
-            if let indexPath = dayCollectionView.indexPathForItem(at: center) {
-                // If the current index is different from the index of the closest cell, scroll to that cell
-                if indexPath.item != currentIndex {
-                    currentIndex = indexPath.item
-                    dayCollectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
-                }
+        let center = CGPoint(x: scrollView.contentOffset.x + (scrollView.frame.width / 2), y: scrollView.contentOffset.y + (scrollView.frame.height / 2))
+        
+        // Find the index path of the cell closest to the center
+        if let indexPath = dayCollectionView.indexPathForItem(at: center) {
+            // If the current index is different from the index of the closest cell, scroll to that cell
+            if indexPath.item != currentIndex {
+                currentIndex = indexPath.item
+                dayCollectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
             }
         }
+    }
 }
