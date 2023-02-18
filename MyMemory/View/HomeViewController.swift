@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
 
     let db = Database.database().reference().child("Day")
     var dayList: [Day] = []
+    var indexStored: Int?
     
     @IBOutlet var dayCollectionView: UICollectionView!
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -53,6 +54,16 @@ class HomeViewController: UIViewController {
         let dayNib = UINib(nibName: "DayCollectionViewCell", bundle: nil)
         dayCollectionView.register(dayNib, forCellWithReuseIdentifier: "DayCollectionViewCell")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAddDayVC" {
+            if let destinationVC = segue.destination as? AddDayViewController {
+                if let index = indexStored {
+                    destinationVC.day = dayList[index]
+                }
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -66,6 +77,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         cell.title.text = dayList[indexPath.row].title
         cell.body.text = dayList[indexPath.row].body
+        indexStored = indexPath.row
         cell.updateButton.addTarget(self, action: #selector(performUpdate), for: .touchUpInside)
                                     
         return cell

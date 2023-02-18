@@ -14,6 +14,8 @@ class AddDayViewController: UIViewController {
     let db = Database.database().reference().child("Day")
     let DidDismissAddDayViewController: Notification.Name = Notification.Name("DidDismissAddDayViewController")
     
+    var day: Day?
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextField!
     
@@ -21,6 +23,8 @@ class AddDayViewController: UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(day)
+        setFields(day)
     }
     
     
@@ -41,6 +45,13 @@ class AddDayViewController: UIViewController {
                 viewController.dayList.append(newDay)
                 viewController.dayCollectionView.reloadData()
             }
+        }
+    }
+    
+    private func setFields(_ day: Day?) -> Void {
+        if let day = day {
+            titleTextField.text = day.title
+            bodyTextField.text = day.body
         }
     }
 }
