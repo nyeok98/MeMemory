@@ -22,10 +22,12 @@ class DayCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setButton(button: updateButton)
     }
     
     //MARK: - HELPERS
-    func updateDay(_ day:Day) {
-        
+    
+    func setButton(button: UIButton) {
+        button.frame = self.frame
     }
 }

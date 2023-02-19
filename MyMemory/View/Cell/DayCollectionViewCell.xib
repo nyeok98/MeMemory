@@ -32,20 +32,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="occ-Q0-GIP">
-                                <rect key="frame" x="8" y="90" width="75" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="occ-Q0-GIP">
+                                <rect key="frame" x="34" y="101" width="24" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aiG-7j-J5Z" firstAttribute="top" secondItem="61a-zQ-sAN" secondAttribute="bottom" constant="20" id="1A2-Ij-2o5"/>
                             <constraint firstItem="61a-zQ-sAN" firstAttribute="top" secondItem="sSI-vo-87N" secondAttribute="top" constant="20" id="D0Y-dC-cKe"/>
-                            <constraint firstItem="occ-Q0-GIP" firstAttribute="top" secondItem="aiG-7j-J5Z" secondAttribute="bottom" constant="8" symbolic="YES" id="ERj-5K-SEP"/>
                             <constraint firstItem="aiG-7j-J5Z" firstAttribute="leading" secondItem="sSI-vo-87N" secondAttribute="leading" constant="15" id="Jde-Lv-X7X"/>
                             <constraint firstItem="61a-zQ-sAN" firstAttribute="leading" secondItem="sSI-vo-87N" secondAttribute="leading" constant="15" id="Oee-wi-zj1"/>
-                            <constraint firstItem="occ-Q0-GIP" firstAttribute="leading" secondItem="sSI-vo-87N" secondAttribute="leading" constant="8" id="rEm-ta-aBz"/>
                         </constraints>
                     </view>
                 </subviews>
