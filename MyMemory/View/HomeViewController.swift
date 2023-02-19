@@ -76,7 +76,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.title.text = dayList[indexPath.row].title
         cell.body.text = dayList[indexPath.row].body
         cell.updateButton.addTarget(self, action: #selector(performUpdate), for: .touchUpInside)
-                                    
+        
         return cell
     }
 
