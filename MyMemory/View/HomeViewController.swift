@@ -42,6 +42,9 @@ class HomeViewController: UIViewController {
             switch result {
             case .success(let days):
                 self?.dayList.append(contentsOf: days)
+                self?.dayList.sort(by: { day1, day2 in
+                    return day1.date >= day2.date
+                })
                 self?.dayCollectionView.reloadData()
             case .failure(let err):
                 print(err)
