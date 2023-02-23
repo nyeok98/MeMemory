@@ -14,7 +14,11 @@ protocol FireBaseServiceProtocol {
 
 final class FireBaseService: FireBaseServiceProtocol {
     
+    static let shared = FireBaseService()
+    
     let db = Database.database().reference().child("Day")
+    
+    private init() {}
     
     func fetchData(completion: @escaping (Result<[Day], Error>) -> Void) {
         db.observeSingleEvent(of: .value) { snapshot, err  in
@@ -25,7 +29,7 @@ final class FireBaseService: FireBaseServiceProtocol {
                 let dayList = try decoder.decode([Day].self, from: data)
                 completion(.success(dayList))
             } catch {
-                print(err ?? "")
+                print(err?.debugDescription ?? "")
             }
         }
     }

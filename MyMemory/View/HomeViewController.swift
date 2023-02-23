@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     let db = Database.database().reference().child("Day")
     var dayList: [Day] = []
     var currentIndex: Int = 0
+    let fireBaseService = FireBaseService.shared
     
     @IBOutlet var dayCollectionView: UICollectionView!
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -30,22 +31,20 @@ class HomeViewController: UIViewController {
         dayCollectionView.delegate = self
         dayCollectionView.dataSource = self
         registerNib()
-        fetchDayData()
+        fetchDays()
     }
 
     // MARK: - HELPER
-
-    func fetchDayData() {
-        db.observeSingleEvent(of: .value) { snapshot in
-            guard let snapData = snapshot.value as? [String: Any] else { return }
-            let data = try! JSONSerialization.data(withJSONObject: Array(snapData.values), options: [])
-            do {
-                let decoder = JSONDecoder()
-                let dayList = try decoder.decode([Day].self, from: data)
-                self.dayList.append(contentsOf: dayList)
-                self.dayCollectionView.reloadData()
-            } catch {
-                print("\(error.localizedDescription)")
+    
+    func fetchDays() {
+        fireBaseService.fetchData { [weak self] result in
+            switch result {
+            case .success(let days):
+                print("success: \(days)")
+                self?.dayList.append(contentsOf: days)
+                self?.dayCollectionView.reloadData()
+            case .failure(let err):
+                print(err)
             }
         }
     }

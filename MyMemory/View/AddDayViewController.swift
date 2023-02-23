@@ -23,7 +23,6 @@ class AddDayViewController: UIViewController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(day)
         setFields(day)
     }
     
