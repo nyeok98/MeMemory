@@ -10,6 +10,7 @@ import FirebaseDatabase
 
 protocol FireBaseServiceProtocol {
     func fetchData(completion: @escaping (Result<[Day], Error>) -> Void)
+    func putData(day: Day)
 }
 
 final class FireBaseService: FireBaseServiceProtocol {
@@ -32,5 +33,18 @@ final class FireBaseService: FireBaseServiceProtocol {
                 print(err?.debugDescription ?? "")
             }
         }
+    }
+    
+    func putData(day: Day) {
+        let encoder = JSONEncoder()
+        
+        do {
+            let data = try encoder.encode(day)
+            let json = try JSONSerialization.jsonObject(with: data)
+            self.db.child(day.date).setValue(json)
+        } catch {
+            print(error)
+        }
+        
     }
 }
