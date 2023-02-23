@@ -40,7 +40,6 @@ class HomeViewController: UIViewController {
         fireBaseService.fetchData { [weak self] result in
             switch result {
             case .success(let days):
-                print("success: \(days)")
                 self?.dayList.append(contentsOf: days)
                 self?.dayCollectionView.reloadData()
             case .failure(let err):
