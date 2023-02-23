@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var dayCollectionView: UICollectionView!
     @IBAction func addButtonTapped(_ sender: Any) {
+        currentIndex = -1
         performSegue(withIdentifier: "goToAddDayVC", sender: self)
     }
    
@@ -54,7 +55,7 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAddDayVC" {
+        if segue.identifier == "goToAddDayVC" && currentIndex >= 0 {
             if let destinationVC = segue.destination as? AddDayViewController {
                     destinationVC.day = dayList[currentIndex]
             }
