@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
     // MARK: - HELPER
     
     func fetchDays() {
-        fireBaseService.fetchData { [weak self] result in
+        fireBaseService.getDay { [weak self] result in
             switch result {
             case .success(let days):
                 self?.dayList.append(contentsOf: days)

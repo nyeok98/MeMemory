@@ -32,7 +32,7 @@ class AddDayViewController: UIViewController {
         
         if let viewController = presentingViewController as? HomeViewController {
             self.dismiss(animated: true) {
-                self.fireBaseService.putData(day: newDay)
+                self.fireBaseService.createDay(day: newDay)
                 viewController.dayList.insert(newDay, at: 0)
                 viewController.dayCollectionView.reloadData()
             }

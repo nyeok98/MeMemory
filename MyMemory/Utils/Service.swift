@@ -9,8 +9,8 @@ import Foundation
 import FirebaseDatabase
 
 protocol FireBaseServiceProtocol {
-    func fetchData(completion: @escaping (Result<[Day], Error>) -> Void)
-    func putData(day: Day)
+    func getDay(completion: @escaping (Result<[Day], Error>) -> Void)
+    func createDay(day: Day)
 }
 
 final class FireBaseService: FireBaseServiceProtocol {
@@ -21,7 +21,7 @@ final class FireBaseService: FireBaseServiceProtocol {
     
     private init() {}
     
-    func fetchData(completion: @escaping (Result<[Day], Error>) -> Void) {
+    func getDay(completion: @escaping (Result<[Day], Error>) -> Void) {
         db.observeSingleEvent(of: .value) { snapshot, err  in
             guard let snapData = snapshot.value as? [String: Any] else { return }
             let data = try! JSONSerialization.data(withJSONObject: Array(snapData.values), options: [])
@@ -35,7 +35,7 @@ final class FireBaseService: FireBaseServiceProtocol {
         }
     }
     
-    func putData(day: Day) {
+    func createDay(day: Day) {
         let encoder = JSONEncoder()
         
         do {
@@ -46,5 +46,13 @@ final class FireBaseService: FireBaseServiceProtocol {
             print(error)
         }
         
+    }
+    
+    func updateDay() {
+        // where day should be updated
+    }
+    
+    func deleteDay() {
+        // where day should be deleted
     }
 }
