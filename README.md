@@ -1,6 +1,6 @@
 # MyMemory
 
-#### project that includes all the side sets that I want to practice
+#### 이 프로젝트는 다음과 같은 기술스택을 포함합니다.
 
 - Firebase
 - Almofire
@@ -9,7 +9,7 @@
 
 </br>
 
-## To-Do
+## Tasks
 - [x] HomeVC, AddDayVC 구성
 - [x] Model 구축 및 JSON 직렬화 설계
 - [x] Firebase 연동
@@ -20,3 +20,10 @@
 - [ ] MVVM 아키텍쳐로 개선
 - [ ] translation api 연동
 - [ ] openAI 연동
+
+<br/>
+
+## Notes
+[RxSwift는 왜 쓰는걸까?(부제: DispatchQueue의 늪) - 1](https://el-este.com/25)<br/>
+[RxSwift는 왜 쓰는걸까?(부제: DispatchQueue의 늪) - 2](https://el-este.com/26)
+
